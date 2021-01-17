@@ -2,18 +2,14 @@ package main
 
 import (
 	"./configuration"
+	"./loadTesting"
 	"flag"
-	"fmt"
 )
 
 func main() {
 	configPtr := flag.String("configuration", "config.json", "a path to config file")
-	config := configuration.ReadConfigurationFromFile(*configPtr)
+	config := configuration.ReadFromFile(*configPtr)
 	flag.Parse()
 
-	Test(config)
-}
-
-func Test(config configuration.Configuration) {
-	fmt.Printf("Testing url -> %s \n", config.ServerUrl)
+	loadTesting.Run(config)
 }

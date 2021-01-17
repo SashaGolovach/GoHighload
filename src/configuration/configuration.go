@@ -10,7 +10,7 @@ type Configuration struct {
 	ServerUrl string
 }
 
-func ReadConfigurationFromFile(path string) Configuration {
+func ReadFromFile(path string) Configuration {
 	content, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatal(err)
